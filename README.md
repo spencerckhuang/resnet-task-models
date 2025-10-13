@@ -21,9 +21,12 @@ In order to run, this codebase needs the ResNet model weight files. They are too
 To run: `python3 server.py`.
 
 
-### `/classify` endpoint
-Input: 
+### `/classify` endpoint (POST)
+Sample request
+
+
 ```
+Content-Type: application/json
 {
     "task_id": Int from 1 to 5 inclusive,
     "image": base64 encoded image
