@@ -28,7 +28,7 @@ Sample request
 ```
 Content-Type: application/json
 {
-    "task_id": Int from 1 to 5 inclusive,
+    "task_id": Int from 1 to 6 inclusive,
     "image": base64 encoded image
 }
 ```
