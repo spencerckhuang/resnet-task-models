@@ -18,7 +18,7 @@ app = Flask(__name__)
 # initialized in main
 all_models = {}
 
-TASK_IDS = [1, 2, 3, 4, 5]
+TASK_IDS = [1, 2, 3, 4, 5, 6]
 DATE_STRING = '10_10_25'
 DEBUG = True
 
