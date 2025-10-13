@@ -22,11 +22,6 @@ TASK_IDS = [1, 2, 3, 4, 5]
 DATE_STRING = '10_10_25'
 DEBUG = True
 
-@app.route('/')
-def hello():
-    return 'hello world :)'
-
-
 @app.route('/classify', methods=['POST'])
 def classify_image():
     '''
