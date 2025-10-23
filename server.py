@@ -19,8 +19,12 @@ app = Flask(__name__)
 all_models = {}
 
 TASK_IDS = [1, 2, 3, 4, 5, 6]
-DATE_STRING = '10_10_25'
 DEBUG = True
+
+### ---- Change these for different sets of weights! ---- ###
+DATE_STRING = '10_22_25'
+MODEL_WEIGHTS_DIR = 'pos_weight_1'
+### ----------------------------------------------------- ###
 
 @app.route('/classify', methods=['POST'])
 def classify_image():
@@ -96,7 +100,6 @@ preprocess = transforms.Compose([
 ])
 
 def initialize_models():
-    weights_root = f'./model-weights/{DATE_STRING}'
 
     for id in TASK_IDS:
         # Create template model with modified output
@@ -104,7 +107,7 @@ def initialize_models():
         num_ftrs = model.fc.in_features
         model.fc = nn.Linear(num_ftrs, 1)
 
-        model.load_state_dict(torch.load(f'{weights_root}/task_{id}_final_weights_{DATE_STRING}.pth'))
+        model.load_state_dict(torch.load(f'./{MODEL_WEIGHTS_DIR}/task_{id}_final_weights_{DATE_STRING}.pth'))
         model.eval()
         all_models[id] = model
         print(f'Model for task {id} initialized successfully.')
